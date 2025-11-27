@@ -1,0 +1,161 @@
+﻿<Window x:Class="Front.Estadisticas"
+        ResizeMode="NoResize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Front"
+        mc:Ignorable="d"
+        Title="Estadisticas" Height="450" Width="800">
+    <Grid>
+
+        <Grid.Background>
+            <SolidColorBrush Color="#DCD6D6"/>
+        </Grid.Background>
+
+        <Grid Background="#F2F2F2" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800">
+            <TextBlock Text="Resultados de la simulación" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="32"/>
+            <Image Source="/image 4.png" Width="70" HorizontalAlignment="Right" Margin="0,0,80,0"/>
+
+            <Button Content="X" Background="#E35E5E" Foreground="White" Width="50" Height="50" FontSize="25" HorizontalAlignment="Left" Margin="730,10,0,0" Click="Cerrar_Click" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid Margin="0,70,0,0">
+            <Image Source="/image 2.png" Opacity="1" Stretch="Fill" HorizontalAlignment="Center" Width="800" Height="364" VerticalAlignment="Top"/>
+
+            <!-- Parte de la izqierda-->
+            <Grid Background="#80000000" Width="428" HorizontalAlignment="Left" Margin="-7,0,0,0" Height="367" VerticalAlignment="Center">
+
+                <StackPanel Margin="20,20,0,0" Width="380">
+
+                    <!-- Número hormigas -->
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Número hormigas:" 
+                       FontSize="24" Foreground="White" />
+
+                        <TextBlock x:Name="txtNumHormigas" 
+                       Text="1234" Grid.Column="1"
+                       FontSize="24" Foreground="White" />
+                    </Grid>
+
+                    <!-- Reinas -->
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="• Reinas:" 
+                       FontSize="22" Foreground="White" />
+
+                        <TextBlock x:Name="txtReinas" 
+                       Text="3" Grid.Column="1"
+                       FontSize="22" Foreground="White" />
+                    </Grid>
+
+                    <!-- Obreras -->
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="47*" />
+                            <ColumnDefinition Width="297*"/>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="• Obreras:" 
+                       FontSize="22" Foreground="White" Grid.ColumnSpan="2" />
+
+                        <TextBlock x:Name="txtObreras" 
+                       Text="200" Grid.Column="1"
+                       FontSize="22" Foreground="White" Margin="289,0,0,0" />
+                    </Grid>
+
+                    <!-- Comida recolectada -->
+                    <Grid Margin="10,20,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Hormigas Perdidas:" 
+                       FontSize="24" Foreground="White" />
+
+                        <TextBlock x:Name="txtComida" 
+                       Text="420" Grid.Column="1"
+                       FontSize="24" Foreground="White" />
+                    </Grid>
+
+                    <!-- Territorio total -->
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Territorio de hormigas:" 
+                       FontSize="24" Foreground="White" />
+
+                        <TextBlock x:Name="txtTerritorio" 
+                       Text="25" Grid.Column="1"
+                       FontSize="24" Foreground="White" />
+                    </Grid>
+
+                    <!-- Animales cazados -->
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Depredadores cazados:" 
+                       FontSize="24" Foreground="White" />
+
+                        <TextBlock x:Name="txtCazados" 
+                       Text="600" Grid.Column="1"
+                       FontSize="24" Foreground="White" />
+                    </Grid>
+
+                    <!-- Horas de uso -->
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+
+                    <!-- Puntuación total -->
+                    <Grid Margin="0,30,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Puntuación total:" 
+                       FontSize="26" Foreground="White" />
+
+                        <TextBlock x:Name="txtPuntuacion" 
+                       Text="69420" Grid.Column="1"
+                       FontSize="26" Foreground="White" />
+                    </Grid>
+
+                </StackPanel>
+            </Grid>
+
+
+            <Button Height="60" Background="#EDECEC" FontSize="22" Click="Salir_Click" Margin="559,270,0,0" HorizontalAlignment="Left" Width="217" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Salir" Margin="10,0"/>
+                    <Image Source="/image 8.png" Width="40" Margin="20,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+
+
+        </Grid>
+    </Grid>
+
+</Window>

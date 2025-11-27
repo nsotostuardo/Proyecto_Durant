@@ -1,0 +1,33 @@
+﻿<Window x:Class="Front.simulacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Front"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="simulacion" Height="450" Width="800">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0.183"/>
+                <GradientStop Color="#4C7EFD7C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="btnEstadisticas" Content="Estadísticas" FontSize="22" Margin="472,160,0,0" VerticalAlignment="Top" Height="47" Click="btnEstadisticas_Click" BorderBrush="#FFE787FF" Background="#FFE842AB" Foreground="White" HorizontalAlignment="Left" Width="168"/>
+        <Button x:Name="btnInformacion" Content="Información" FontSize="22" Margin="470,244,0,0" VerticalAlignment="Top" Height="47" RenderTransformOrigin="0.633,0.788"  BorderBrush="#FFE787FF" Background="#FFE842AB" Foreground="White" HorizontalAlignment="Left" Width="170" Click="btnInformacion_Click"/>
+        <TextBlock x:Name="txtConfiguracion" HorizontalAlignment="Left" Margin="337,34,0,0" TextWrapping="Wrap" Text="La simulación" FontSize="24" Width="160" Height="41" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtConfiguracion_Copy" HorizontalAlignment="Left" Margin="472,94,0,0" TextWrapping="Wrap" FontSize="24" Width="112" Height="31" VerticalAlignment="Top"><Run Language="es-cl" Text="Día actual:"/></TextBlock>
+        <TextBlock x:Name="txtDiaActual" HorizontalAlignment="Left" Margin="592,97,0,0" TextWrapping="Wrap" FontSize="24" Width="114" Height="31" VerticalAlignment="Top" Text="1"/>
+        <TextBlock x:Name="txtConfiguracion_Copy2" Margin="536,348,0,0" TextWrapping="Wrap" FontSize="24" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171"><Run Text="Siguiente "/><Run Language="es-cl" Text="d"/><Run Text="ía"/></TextBlock>
+        <Image x:Name="imgPasto" HorizontalAlignment="Left" Height="299" Margin="62,96,0,0" VerticalAlignment="Top" Width="302" Source="/pastos.png" Stretch="Fill"/>
+        <Grid x:Name="grillaSimulacion" HorizontalAlignment="Left" Width="302" Height="299" Margin="62,96,0,0" Background="Transparent" VerticalAlignment="Top">
+        </Grid>
+        <Button Background="{x:Null}" FontSize="22" Click="SiguenteDia_Click" Margin="684,350,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="55" Height="44" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Arrow right-circle.png" Width="47"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

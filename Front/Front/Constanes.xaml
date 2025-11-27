@@ -1,0 +1,37 @@
+﻿<Window x:Class="Front.Constanes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Front"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="Constanes" Height="450" Width="800">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FF00C8FF" Offset="1"/>
+                <GradientStop Color="#FF76E1FF" Offset="0.993"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock x:Name="txtConstantes" Margin="288,34,0,0" TextWrapping="Wrap" FontSize="24" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"><Run Text="Seleccione "/><Run Language="ja-jp" Text="de constantes"/></TextBlock>
+        <Button x:Name="btnVolver" Content="X" Margin="761,22,0,0" Background="#FFD5CECE" BorderBrush="White" Foreground="#FF747070" SnapsToDevicePixels="True" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnVolver_Click"/>
+        <ComboBox x:Name="cmbxAmbiente" HorizontalAlignment="Left" Margin="286,218,0,0" VerticalAlignment="Top" Width="218" Height="35" SelectedIndex="0" FontSize="16" SelectionChanged="cmbxAmbiente_SelectionChanged" >
+            <ComboBoxItem IsEnabled="False" Content="Seleccione una opción"/>
+            <ComboBoxItem Content="Soleado"/>
+            <ComboBoxItem Content="Lluvia"/>
+            <ComboBoxItem Content="Helada"/>
+        </ComboBox>
+        <ComboBox x:Name="cmbxDepredadores" HorizontalAlignment="Left" Margin="288,297,0,0" VerticalAlignment="Top" Width="218" Height="35" SelectedIndex="0" FontSize="16" SelectionChanged="cmbxDepredadores_SelectionChanged" >
+            <ComboBoxItem IsEnabled="False" Content="Seleccione una opción"/>
+            <ComboBoxItem Content="Pangolino"/>
+            <ComboBoxItem Content="Oso hormigero"/>
+            <ComboBoxItem Content="Armadillos"/>
+        </ComboBox>
+        <Image x:Name="imgRecursos_Copy1" HorizontalAlignment="Left" Margin="137,0,0,83" Width="108" Source="/depredador.png" VerticalAlignment="Bottom" Height="89"/>
+        <Image x:Name="imgRecursos_Copy" HorizontalAlignment="Left" Height="74" Margin="159,202,0,0" VerticalAlignment="Top" Width="65" Source="/ambiente.png"/>
+        <Image x:Name="imgRecursos" HorizontalAlignment="Left" Height="52" Margin="169,128,0,0" VerticalAlignment="Top" Width="44" Source="/ResourcesDurant/recursos.png"/>
+    </Grid>
+</Window>
