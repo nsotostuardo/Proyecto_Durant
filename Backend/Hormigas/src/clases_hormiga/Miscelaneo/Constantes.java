@@ -6,8 +6,7 @@ package clases_hormiga.Miscelaneo;
 
 public interface Constantes {
     // Configuracion
-    String PATH_TXT = "C:\\Users\\n" + //
-                "soto\\Desktop\\New folder\\Bootcamp lenguajes de Programacion\\Proyecto_Durant\\Generador Datos\\tarea_proyecto\\datos.txt" ;
+    String PATH_TXT = "C:\\Users\\nsoto\\Desktop\\New folder\\Bootcamp lenguajes de Programacion\\clases\\Hormigas\\src\\clases_hormiga\\datos.txt";
     
     //Clima del terreno
     String CLIMA = "Soleado";
@@ -22,8 +21,7 @@ public interface Constantes {
     int REPRODUCCION = 100 ;
     // int cantidad = Sale del txt ;
     
-    //Reina
+    
 }
 
 
-//resumen, ejecutar el codigo, replantear el codigo anterior 

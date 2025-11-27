@@ -5,7 +5,7 @@ public class Depredadores {
     private float Velocidad;
     private int cantidad;
     private int Consumo;
-    private int reproduccion; //que es reproducción?
+    private int reproduccion;
     
     public Depredadores(String Especie, float Velocidad, int Consumo, int reproduccion, int cantidad){
         this.Especie = Especie;
@@ -14,9 +14,18 @@ public class Depredadores {
         this.reproduccion = reproduccion;
         this.cantidad = cantidad;
     }
+    
     public Depredadores(){
     }
 
+    public Depredadores(Depredadores other, Integer cantidadOverride) {
+        this.Especie = other.Especie;
+        this.Velocidad = other.Velocidad;
+        this.Consumo = other.Consumo;
+        this.reproduccion = other.reproduccion;
+        this.cantidad = (cantidadOverride != null) ? cantidadOverride : other.cantidad;
+    }
+    
     public int getCantidad() {
         return cantidad;
     }

@@ -25,6 +25,7 @@ public class Reina extends Hormiga{
         return multiplicador_hijos;
     }
 
+    @Override
     public int getCantidad() {
         return cantidad;
     }
@@ -57,5 +58,46 @@ public class Reina extends Hormiga{
     public String getTipo() {
         return "Reina";
     } 
+
+    public void setTIPO(String TIPO) {
+        this.TIPO = TIPO;
+    }
+
+    public void setAGRESIVIDAD(float AGRESIVIDAD) {
+        this.AGRESIVIDAD = AGRESIVIDAD;
+    }
+
+    public void setCONSUMO(float CONSUMO) {
+        this.CONSUMO = CONSUMO;
+    }
+
+    public void setREPRODUCCION(float REPRODUCCION) {
+        this.REPRODUCCION = REPRODUCCION;
+    }
+    
+    public void setVariablesEspecie(String tipo, float agresividad, float consumo, float reproduccion){
+        setTIPO(tipo);
+        setAGRESIVIDAD(agresividad);
+        setCONSUMO(consumo);
+        setREPRODUCCION(reproduccion);
+    }
+    
+    public Reina copy() {
+    Reina r = new Reina();
+
+    r.etapa_vida = this.etapa_vida;
+    r.hp = this.hp;
+    r.enfermo = this.enfermo;
+    r.TIPO = this.TIPO;
+    r.AGRESIVIDAD = this.AGRESIVIDAD;
+    r.CONSUMO = this.CONSUMO;
+    r.REPRODUCCION = this.REPRODUCCION;
+    r.multiplicador_hijos = this.multiplicador_hijos;
+    r.cantidad = this.cantidad;
+    r.energia = this.energia;
+    r.estado_fecundacion = this.estado_fecundacion;
+    r.tipo = this.tipo;
+    return r;
+}
     
 }

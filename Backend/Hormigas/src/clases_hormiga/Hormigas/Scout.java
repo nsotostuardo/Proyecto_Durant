@@ -23,6 +23,7 @@ public class Scout extends Hormiga{
         this.id = id;
     }
 
+    @Override
     public int getCantidad() {
         return cantidad;
     }
@@ -68,10 +69,41 @@ public class Scout extends Hormiga{
     public void setId(int id) {
         this.id = id;
     }
-    
-    
 
+    public void setTIPO(String TIPO) {
+        this.TIPO = TIPO;
+    }
+
+    public void setAGRESIVIDAD(float AGRESIVIDAD) {
+        this.AGRESIVIDAD = AGRESIVIDAD;
+    }
+
+    public void setCONSUMO(float CONSUMO) {
+        this.CONSUMO = CONSUMO;
+    }
+
+    public void setREPRODUCCION(float REPRODUCCION) {
+        this.REPRODUCCION = REPRODUCCION;
+    }
     
+    public void setVariablesEspecie(String tipo, float agresividad, float consumo, float reproduccion){
+        setTIPO(tipo);
+        setAGRESIVIDAD(agresividad);
+        setCONSUMO(consumo);
+        setREPRODUCCION(reproduccion);
+    }    
+
+    public Scout copy() {
+    Feromona nuevaF = this.feromonas;
+    Scout copia = new Scout( this.cantidad, nuevaF, this.estado, this.energia, this.id, this.etapa_vida, this.hp, this.enfermo);
+    copia.setTIPO(this.TIPO);
+    copia.setAGRESIVIDAD(this.AGRESIVIDAD);
+    copia.setCONSUMO(this.CONSUMO);
+    copia.setREPRODUCCION(this.REPRODUCCION);
+
+    return copia;
+}
+
     
   
 }

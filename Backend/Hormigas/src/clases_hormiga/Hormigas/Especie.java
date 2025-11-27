@@ -5,13 +5,7 @@
 package clases_hormiga.Hormigas;
 
 public interface Especie {
-    
-    String TIPO = "Hormiga de fuego";
-    float AGRESIVIDAD = 0.95f;
-    float CONSUMO = 0.85f;
-    float REPRODUCCION = 0.6f;
-    
-    
+   
     //REINA
     int MULTIPLICADOR_HIJOS = 12;
     

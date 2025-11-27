@@ -2,7 +2,7 @@ package clases_hormiga.Hormigas;
 
 import clases_hormiga.Hormigas.Especie;
 
-public abstract class Hormiga implements Especie{
+public abstract class Hormiga extends ConstantesRaza implements Especie{
     protected String etapa_vida;
     protected float hp;
     protected boolean enfermo;
@@ -39,10 +39,26 @@ public abstract class Hormiga implements Especie{
     public void setEnfermo(boolean enfermo) {
         this.enfermo = enfermo;
     }
+
+    public String getTIPO() {
+        return TIPO;
+    }
+
+    public float getAGRESIVIDAD() {
+        return AGRESIVIDAD;
+    }
+
+    public float getCONSUMO() {
+        return CONSUMO;
+    }
+
+    public float getREPRODUCCION() {
+        return REPRODUCCION;
+    }
    
     
-    public static void listarInfomacionEspecie(){
-        System.out.println("Especie="+ TIPO+", agresividad="+ AGRESIVIDAD+", consumo="+ CONSUMO + " taza reproduccion="+REPRODUCCION);
+    public void listarInfomacionEspecie(){
+        System.out.println("Especie="+ getTIPO()+", agresividad="+ getAGRESIVIDAD()+", consumo="+ getCONSUMO() + " taza reproduccion="+getREPRODUCCION());
     }
     
 }

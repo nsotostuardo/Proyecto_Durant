@@ -23,6 +23,7 @@ public class Soldier extends Hormiga{
         return estado_alerta;
     }
 
+    @Override
     public int getCantidad() {
         return cantidad;
     }
@@ -55,7 +56,37 @@ public class Soldier extends Hormiga{
     public String getTipo() {
         return "Soldado";
     }
+
+    public void setTIPO(String TIPO) {
+        this.TIPO = TIPO;
+    }
+
+    public void setAGRESIVIDAD(float AGRESIVIDAD) {
+        this.AGRESIVIDAD = AGRESIVIDAD;
+    }
+
+    public void setCONSUMO(float CONSUMO) {
+        this.CONSUMO = CONSUMO;
+    }
+
+    public void setREPRODUCCION(float REPRODUCCION) {
+        this.REPRODUCCION = REPRODUCCION;
+    }
+ 
+    public void setVariablesEspecie(String tipo, float agresividad, float consumo, float reproduccion){
+        setTIPO(tipo);
+        setAGRESIVIDAD(agresividad);
+        setCONSUMO(consumo);
+        setREPRODUCCION(reproduccion);
+    }
     
-    
-    
+    public Soldier copy() {
+        Soldier copia = new Soldier(this.estado_alerta, this.cantidad, this.energia, this.posicion, this.etapa_vida, this.hp, this.enfermo);
+        copia.setTIPO(this.TIPO);
+        copia.setAGRESIVIDAD(this.AGRESIVIDAD);
+        copia.setCONSUMO(this.CONSUMO);
+        copia.setREPRODUCCION(this.REPRODUCCION);
+        return copia;
+    }
+
 }

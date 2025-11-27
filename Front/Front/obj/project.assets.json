@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nsoto\\Desktop\\Codigos Varios\\Front\\Front\\Front.csproj",
+      "projectUniqueName": "C:\\Users\\nsoto\\Desktop\\New folder\\Bootcamp lenguajes de Programacion\\Proyecto_Durant\\Front\\Front\\Front.csproj",
       "projectName": "Front",
-      "projectPath": "C:\\Users\\nsoto\\Desktop\\Codigos Varios\\Front\\Front\\Front.csproj",
+      "projectPath": "C:\\Users\\nsoto\\Desktop\\New folder\\Bootcamp lenguajes de Programacion\\Proyecto_Durant\\Front\\Front\\Front.csproj",
       "packagesPath": "C:\\Users\\nsoto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nsoto\\Desktop\\Codigos Varios\\Front\\Front\\obj\\",
+      "outputPath": "C:\\Users\\nsoto\\Desktop\\New folder\\Bootcamp lenguajes de Programacion\\Proyecto_Durant\\Front\\Front\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nsoto\\AppData\\Roaming\\NuGet\\NuGet.Config",

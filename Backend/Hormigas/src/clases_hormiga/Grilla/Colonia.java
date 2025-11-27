@@ -23,6 +23,7 @@ public class Colonia {
     public Colonia() { 
         this.almacen_comida = new ListaComidas();
         this.almacen_hormiga = new ListaHormigas();
+        this.almacen_hormiga.inicializarHormigasBase();
     }
 
     public float getTamano() {

@@ -14,6 +14,13 @@ public class ListaHormigas {
     public ListaHormigas() {
         listaHormigas = new ArrayList<Hormiga>();
     }
+    
+    public void inicializarHormigasBase() {
+        listaHormigas.add(new Reina());
+        listaHormigas.add(new Operator());
+        listaHormigas.add(new Scout());
+        listaHormigas.add(new Soldier());
+    }
 
     public ArrayList<Hormiga> getListaHormigas() {
         return listaHormigas;

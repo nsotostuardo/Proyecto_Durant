@@ -24,6 +24,10 @@ public class Operator extends Hormiga{
         this.material = material;
     }
 
+    public Operator() {
+    }
+    
+    
     public Feromona getFeromonas() {
         return feromonas;
     }
@@ -32,7 +36,7 @@ public class Operator extends Hormiga{
         this.feromonas = feromonas;
     }
 
-
+    @Override
     public int getCantidad(){
         return cantidad;
     }
@@ -68,6 +72,39 @@ public class Operator extends Hormiga{
     public String getTipo() {
         return "Obrera";
     }
-    
+
+    public void setTIPO(String TIPO) {
+        this.TIPO = TIPO;
+    }
+
+    public void setAGRESIVIDAD(float AGRESIVIDAD) {
+        this.AGRESIVIDAD = AGRESIVIDAD;
+    }
+
+    public void setCONSUMO(float CONSUMO) {
+        this.CONSUMO = CONSUMO;
+    }
+
+    public void setREPRODUCCION(float REPRODUCCION) {
+        this.REPRODUCCION = REPRODUCCION;
+    }
+    public void setVariablesEspecie(String tipo, float agresividad, float consumo, float reproduccion){
+        setTIPO(tipo);
+        setAGRESIVIDAD(agresividad);
+        setCONSUMO(consumo);
+        setREPRODUCCION(reproduccion);
+    }
+    public Operator copy() {
+    Feromona nuevaF = this.feromonas;
+
+    Operator copia = new Operator(nuevaF, this.cantidad, this.energia, this.id, this.material, this.etapa_vida, this.hp, this.enfermo);
+
+    copia.setTIPO(this.TIPO);
+    copia.setAGRESIVIDAD(this.AGRESIVIDAD);
+    copia.setCONSUMO(this.CONSUMO);
+    copia.setREPRODUCCION(this.REPRODUCCION);
+
+    return copia;
+}
 }
 
