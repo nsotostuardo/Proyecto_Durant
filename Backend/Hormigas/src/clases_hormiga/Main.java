@@ -13,7 +13,9 @@ import java.util.Scanner;
 import java.util.ArrayList;           
 import java.util.Random;   
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main implements Constantes{
     private static int maximo = 0;
@@ -63,7 +65,8 @@ public class Main implements Constantes{
                 ListaHormigas lista_hormigas_base = CrearListaHormigasBase(args[0]);
                 Depredadores depredador_base = CrearDepredador(args[1]);
                 Ambiente ambiente_base = CrearAmbiente(args[2]);
-                CrearGrilla(lista_hormigas_base, depredador_base, ambiente_base);
+                String path_file = args[3];
+                CrearGrilla(lista_hormigas_base, depredador_base, ambiente_base, path_file);
                 return "OK";
                 
             case "TAMANO":
@@ -115,58 +118,136 @@ public class Main implements Constantes{
                 Random rnd = new Random();
                 for (int col = 0; col < maximo; col++) {
                     for (int row = 0; row < maximo; row++) {
-                        colonia = terrenos.buscarTerreno(col, row).getColonia();
-                        if (colonia == null) continue;
 
-                        lista = colonia.getAlmacen_hormiga().getListaHormigas();
-                        Reina reina = (Reina) lista.get(0);
-                        Operator obrero = (Operator) lista.get(1);
-                        Scout scout = (Scout) lista.get(2);
-                        Soldier soldado = (Soldier) lista.get(3);
+                        Terreno celda = terrenos.buscarTerreno(col, row);
+                        Colonia cel_col = celda.getColonia();
+                        Depredadores depredador_xy = celda.getDepredador();
 
-                    
-                        if (reina.getEnergia() == 100){
-                            ActualizarHijos(lista);
-                        }
-                        // falta el else de comer
-                       
+                        // HORMIGAS
+                        Scout scout = null;
+                        Soldier soldado = null;
+                        Operator obrero = null;
 
-                        float prob_moverse = rnd.nextFloat();
+                        if (cel_col != null) {
+                            lista = cel_col.getAlmacen_hormiga().getListaHormigas();
+                            Reina reina = (Reina) lista.get(0);
+                            obrero = (Operator) lista.get(1);
+                            scout = (Scout) lista.get(2);
+                            soldado = (Soldier) lista.get(3);
 
-                        if (prob_moverse >= 0.85) {
-                            int cantidadScouts = scout.getCantidad();
-                            if (cantidadScouts == 0) continue; 
-                            int[][] esquinas = { {col - 1, row - 1},{col + 1, row - 1},{col - 1, row + 1},{col + 1, row + 1}};
+                            // REPRODUCCION
+                            if (reina.getEnergia() >= 100f) {
+                                ActualizarHijos(lista);
+                                reina.setEnergia( reina.getEnergia() * 0.5f);
+                                ArrayList<Comida> alimento = cel_col.getAlmacen_comida().getListaComida();
+                                if (!alimento.isEmpty()) {
+                                    Comida comida = alimento.get(0);
+                                    if (comida.getCantidad() > 0){
+                                        reina.setEnergia(100f);
+                                        comida.setCantidad((int)(comida.getCantidad() * 80/100));
+                                    }
+                                }
+                            }
 
-                            for (int[] esquina : esquinas) {
-                                int x = esquina[0];
-                                int y = esquina[1];
+                            // MOVER
+                            float prob_moverse = rnd.nextFloat();
+                            if (prob_moverse >= 0.85f) {
+                                int cantidadScouts = scout.getCantidad();
+                                if (cantidadScouts > 0) {
+                                    int[][] esquinas = {
+                                        {col - 1, row - 1},
+                                        {col + 1, row - 1},
+                                        {col - 1, row + 1},
+                                        {col + 1, row + 1}
+                                    };
 
-                                if (x < 0 || x >= maximo || y < 0 || y >= maximo)
-                                    continue;
+                                    for (int[] esquina : esquinas) {
+                                        int x = esquina[0];
+                                        int y = esquina[1];
 
-                                Colonia colEsquina = terrenos.buscarTerreno(x, y).getColonia();
+                                        if (x < 0 || x >= maximo || y < 0 || y >= maximo)
+                                            continue;
 
-                                if (colEsquina == null) {
-                                    Colonia nueva = new Colonia();
+                                        Terreno celdaEsquina = terrenos.buscarTerreno(x, y);
+                                        Colonia colEsquina = celdaEsquina.getColonia();
 
-                                    Scout s = (Scout) nueva.getAlmacen_hormiga()
-                                            .getListaHormigas().get(2);
-
-                                    s.setCantidad(cantidadScouts);
-
-                                    terrenos.buscarTerreno(x, y).setColonia(nueva);
-                                } else {
-                                    ArrayList<Hormiga> listaEsquina = colEsquina.getAlmacen_hormiga().getListaHormigas();
-                                    Scout scoutEsquina = (Scout) listaEsquina.get(2);
-                                    scoutEsquina.setCantidad(scoutEsquina.getCantidad() + cantidadScouts);
+                                        if (colEsquina == null) {
+                                            Colonia nueva = new Colonia();
+                                            Scout s = (Scout) nueva.getAlmacen_hormiga()
+                                                                   .getListaHormigas().get(2);
+                                            s.setCantidad(cantidadScouts);
+                                            celdaEsquina.setColonia(nueva);
+                                        } else {
+                                            ArrayList<Hormiga> listaEsquina =
+                                                    colEsquina.getAlmacen_hormiga().getListaHormigas();
+                                            Scout scoutEsquina = (Scout) listaEsquina.get(2);
+                                            scoutEsquina.setCantidad(
+                                                    scoutEsquina.getCantidad() + cantidadScouts
+                                            );
+                                        }
+                                    }
+                                    scout.setCantidad(0);
+                                }
                             }
                         }
-                        scout.setCantidad(0);
+
+           
+                        //DEPREDADOR
+            
+                        if (depredador_xy != null) {
+
+                            // REPRODUCCION DEPREDADOR
+                            depredador_xy.setCantidad(
+                                    depredador_xy.getCantidad() + depredador_xy.getReproduccion()
+                            );
+
+                            // MOVERSE DEPREDADOR
+                            float prob_moverse2 = rnd.nextFloat();
+                            if (prob_moverse2 >= 0.95f) {
+                                int[][] esquinas = {
+                                    {col - 1, row - 1},
+                                    {col + 1, row - 1},
+                                    {col - 1, row + 1},
+                                    {col + 1, row + 1}
+                                    };
+
+                                for (int[] esquina : esquinas) {
+                                    int x = esquina[0];
+                                    int y = esquina[1];
+
+                                    if (x < 0 || x >= maximo || y < 0 || y >= maximo)
+                                        continue;
+
+                                    Terreno celdaEsquina = terrenos.buscarTerreno(x, y);
+                                    Depredadores depEsquina = celdaEsquina.getDepredador();
+
+                                    if (depEsquina == null && depredador_xy.getCantidad() >= 2) {
+                                        depredador_xy.setCantidad(depredador_xy.getCantidad() - 1);
+                                        Depredadores nuevodep = new Depredadores(depredador_xy, 1);
+                                        celdaEsquina.setDepredador(nuevodep);
+                                    }
+                                }
+                            }
+
+                    
+                            //COMBATE (SI HAY COLONIA)
+                            if (cel_col != null && scout != null && soldado != null) {
+                                if (depredador_xy.getCantidad() > 0 &&
+                                    (soldado.getCantidad() >= 10 || scout.getCantidad() >= 10 )) {
+                                    if (scout.getCantidad() >= 10) {
+                                        scout.setCantidad(scout.getCantidad() - 10);
+                                    } else {
+                                        soldado.setCantidad(soldado.getCantidad() - 10);
+                                    }
+
+                                    depredador_xy.setCantidad(depredador_xy.getCantidad() - 1);
+                                    horm_muertas += 10;
+                                    depre_muertos += 1;
+                                }
+                            }
+                        }
                     }
                 }
-            }
-
             return "Nuevo Dia";
             
             default:
@@ -303,8 +384,8 @@ public class Main implements Constantes{
         return listahormigas;
     }
     
-    public static void CrearGrilla(ListaHormigas hormigasBase, Depredadores depredador_base, Ambiente ambiente_base){
-        File myObj = new File(PATH_TXT); 
+    public static void CrearGrilla(ListaHormigas hormigasBase, Depredadores depredador_base, Ambiente ambiente_base, String Path_c){
+        File myObj = new File(Path_c); 
         Random random = new Random();
         
         Comida c1 = new Comida("Plantas",100, 1, 1, 12);
@@ -425,20 +506,20 @@ public class Main implements Constantes{
         Scout scout = (Scout) lista.get(2);
         Soldier soldado = (Soldier) lista.get(3);
 
-        if (reina.getEnergia() == 100){
+        if (reina.getEnergia() >= 100f){
             Random random = new Random();
             int multi = (int) reina.getMultiplicador_hijos();
 
             // Obreras: entre 1 y 8
-            int hijos = random.nextInt(8) + 1;
+            int hijos = random.nextInt(2) + 1;
             obrero.setCantidad(obrero.getCantidad() + multi * hijos);
 
             // Scouts: entre 1 y 6
-            hijos = random.nextInt(6) + 1;
+            hijos = random.nextInt(4) + 3;
             scout.setCantidad(scout.getCantidad() + multi * hijos);
 
             // Soldados: entre 1 y 4
-            hijos = random.nextInt(4) + 1;
+            hijos = random.nextInt(4) + 3;
             soldado.setCantidad(soldado.getCantidad() + multi * hijos);
         }
     }

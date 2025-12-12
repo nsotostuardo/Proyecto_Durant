@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +23,7 @@ namespace Front
     {
         public string TipoAmbiente { get; set; }
         public string TipoDepredador { get; set; }
+        public string filePath { get; set; }
 
         public Constanes()
         {
@@ -42,6 +45,32 @@ namespace Front
         {
             if (cmbxDepredadores.SelectedItem is ComboBoxItem item)
                 TipoDepredador = item.Content.ToString();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+            var openFileDialog = new OpenFileDialog();
+
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string proyectoRoot = System.IO.Path.GetFullPath(System.IO.Path.Combine(basePath, @"..\..\..\..\.."));
+            string rutaGenerador = System.IO.Path.Combine(proyectoRoot, @"Generador Datos\tarea_proyecto");
+            openFileDialog.InitialDirectory = rutaGenerador;
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            bool? result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                filePath = openFileDialog.FileName;
+                MessageBox.Show("Ruta archivo: " + filePath);
+            }
+            else
+            {
+                MessageBox.Show("No se seleccionó ningún archivo.");
+            }
         }
     }
 

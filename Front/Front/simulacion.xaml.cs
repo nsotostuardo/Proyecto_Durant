@@ -29,6 +29,7 @@ namespace Front
         public string tHormiga { get; set; }
         public string tDepredador { get; set; }
         public string tClima { get; set; }
+        public string tPath { get; set; }
         private int N2;
         private readonly SemaphoreSlim socketLock = new SemaphoreSlim(1, 1);
 
@@ -36,15 +37,15 @@ namespace Front
         private StreamWriter writer;
         private StreamReader reader;
 
-        public simulacion(string hormiga, string depredador, string clima)
+        public simulacion(string hormiga, string depredador, string clima, string Path)
         {
             InitializeComponent();
             tHormiga = hormiga;
             tDepredador = depredador;
             tClima = clima;
+            tPath = Path;
 
             this.Loaded += Simulacion_Loaded;
-            
         }
 
         private async void btnEstadisticas_Click(object sender, RoutedEventArgs e)
@@ -108,7 +109,7 @@ namespace Front
                         case "rio":
                             img = new Image
                             {
-                                Source = new BitmapImage(new Uri("pack://application:,,,/recursos/agua.png", UriKind.Absolute)),
+                                Source = new BitmapImage(new Uri("pack://application:,,,/recursos/poza.png", UriKind.Absolute)),
                                 Stretch = Stretch.Uniform
                             };
                             break;
@@ -192,7 +193,7 @@ namespace Front
 
         public async Task MandarConfig()
         {
-            string solicitud = "CONFIG;"+ tHormiga+";"+ tDepredador + ";" + tClima;
+            string solicitud = "CONFIG;"+ tHormiga+";"+ tDepredador + ";" + tClima+ ";" + tPath;
             string respuesta = await EnviarSolicitud(solicitud);
         }
 

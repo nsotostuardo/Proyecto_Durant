@@ -21,12 +21,12 @@
         <TextBlock x:Name="txtConfiguracion_Copy" HorizontalAlignment="Left" Margin="472,94,0,0" TextWrapping="Wrap" FontSize="24" Width="112" Height="31" VerticalAlignment="Top"><Run Language="es-cl" Text="Día actual:"/></TextBlock>
         <TextBlock x:Name="txtDiaActual" HorizontalAlignment="Left" Margin="592,97,0,0" TextWrapping="Wrap" FontSize="24" Width="114" Height="31" VerticalAlignment="Top" Text="1"/>
         <TextBlock x:Name="txtConfiguracion_Copy2" Margin="536,348,0,0" TextWrapping="Wrap" FontSize="24" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171"><Run Text="Siguiente "/><Run Language="es-cl" Text="d"/><Run Text="ía"/></TextBlock>
-        <Image x:Name="imgPasto" HorizontalAlignment="Left" Height="299" Margin="62,96,0,0" VerticalAlignment="Top" Width="302" Source="/pastos.png" Stretch="Fill"/>
+        <Image x:Name="imgPasto" HorizontalAlignment="Left" Height="299" Margin="62,96,0,0" VerticalAlignment="Top" Width="302" Source="/recursos/pastos.png" Stretch="Fill"/>
         <Grid x:Name="grillaSimulacion" HorizontalAlignment="Left" Width="302" Height="299" Margin="62,96,0,0" Background="Transparent" VerticalAlignment="Top">
         </Grid>
         <Button Background="{x:Null}" FontSize="22" Click="SiguenteDia_Click" Margin="684,350,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="55" Height="44" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Arrow right-circle.png" Width="47"/>
+                <Image Source="/recursos/Arrow right-circle.png" Width="47"/>
             </StackPanel>
         </Button>
     </Grid>

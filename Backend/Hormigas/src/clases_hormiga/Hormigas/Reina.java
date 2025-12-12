@@ -44,11 +44,21 @@ public class Reina extends Hormiga{
     }
 
     public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        if (cantidad < 0) {
+            this.cantidad = 0;
+        } else {
+            this.cantidad = cantidad;
+        }
     }
 
     public void setEnergia(float energia) {
-        this.energia = energia;
+        if (energia <= 0) {
+            this.energia = 0f;
+        } else if (energia >= 100) {
+            this.energia = 100f;
+        } else {
+            this.energia = energia;
+        }
     }
 
     public void setEstado_fecundacion(boolean estado_fecundacion) {

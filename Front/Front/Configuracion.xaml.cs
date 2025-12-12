@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.IO;
+
 
 namespace Front
 {
@@ -25,6 +27,7 @@ namespace Front
         private string tHormiga;
         private string tDepredador;
         private string tClima;
+        private string tPath;
         public Configuracion()
         {
             InitializeComponent();
@@ -48,12 +51,14 @@ namespace Front
             ventana_constantes.ShowDialog();
             string TipoAmbiente = ventana_constantes.TipoAmbiente;
             string TipoDepredador = ventana_constantes.TipoDepredador;
+            string PathAbsoluto = ventana_constantes.filePath;
 
             if (TipoAmbiente != null & TipoDepredador != null)
             {
                 ExisteConfig = true;
                 tDepredador = TipoDepredador;
                 tClima = TipoAmbiente;
+                tPath = PathAbsoluto;
             }
             else { MessageBox.Show("No selecciono opción"); }
 
@@ -72,7 +77,7 @@ namespace Front
             {
                 MessageBox.Show("Encendiendo Java");
                 AbrirCmd();
-                simulacion ventana_simulacion = new simulacion(tHormiga, tDepredador, tClima);
+                simulacion ventana_simulacion = new simulacion(tHormiga, tDepredador, tClima, tPath);
                 ventana_simulacion.Show();
                 this.Close();
             }
@@ -82,18 +87,21 @@ namespace Front
         private void AbrirCmd()
         {
             Process process = new Process();
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string proyectoRoot = System.IO.Path.GetFullPath(System.IO.Path.Combine(basePath, @"..\..\..\..\.."));
+            string rutaJava = System.IO.Path.Combine(proyectoRoot, @"Backend\Hormigas\src");
+
             process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = "/C cd Hormigas\\src && java clases_hormiga.Main"; //K para no morir, C para morir
+            process.StartInfo.Arguments = $"/K cd \"{rutaJava}\" && java clases_hormiga.Main"; //K para no morir, C para morir
 
             
             process.StartInfo.CreateNoWindow = false; //
             process.StartInfo.UseShellExecute = true;//
-            //process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; ///
 
             process.Start();
             GlobalState.ProcesoConsola = process;
         }
-
 
     }
 }

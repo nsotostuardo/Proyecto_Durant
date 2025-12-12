@@ -15,9 +15,9 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock x:Name="txtConfiguracion" HorizontalAlignment="Left" Margin="257,34,0,0" TextWrapping="Wrap" FontSize="24" Width="316" Height="41" VerticalAlignment="Top"><Run Text="Informac"/><Run Language="es-cl" Text="ión de"/><Run Language="es-cl" Text="l "/><Run Text="a simulación"/></TextBlock>
-        <Image x:Name="imghormiga1_Copy1" HorizontalAlignment="Left" Height="94" Margin="156,109,0,0" VerticalAlignment="Top" Width="88" Source="/632 2.png" Stretch="Fill"/>
-        <Image x:Name="imgRecursos_Copy" HorizontalAlignment="Left" Height="74" Margin="163,222,0,0" VerticalAlignment="Top" Width="65" Source="/ambiente.png"/>
-        <Image x:Name="imgRecursos_Copy1" HorizontalAlignment="Left" Margin="151,0,0,46" Width="84" Source="/depredador.png" VerticalAlignment="Bottom" Height="76" Stretch="Fill"/>
+        <Image x:Name="imghormiga1_Copy1" HorizontalAlignment="Left" Height="94" Margin="156,109,0,0" VerticalAlignment="Top" Width="88" Source="/recursos/HormigaSalir.png" Stretch="Fill"/>
+        <Image x:Name="imgRecursos_Copy" HorizontalAlignment="Left" Height="74" Margin="163,222,0,0" VerticalAlignment="Top" Width="65" Source="/recursos/ambiente.png"/>
+        <Image x:Name="imgRecursos_Copy1" HorizontalAlignment="Left" Margin="151,0,0,46" Width="84" Source="/recursos/depredador.png" VerticalAlignment="Bottom" Height="76" Stretch="Fill"/>
         <TextBlock x:Name="txtConfiguracion_Copy" HorizontalAlignment="Left" Margin="276,138,0,0" TextWrapping="Wrap" FontSize="24" Width="253" Height="31" VerticalAlignment="Top"><Run Language="es-cl" Text="Hormiga seleccionada"/><Run Text=":"/></TextBlock>
         <TextBlock x:Name="txtConfiguracion_Copy1" HorizontalAlignment="Left" Margin="306,240,0,0" TextWrapping="Wrap" FontSize="24" Width="207" Height="31" VerticalAlignment="Top" Text="Clima seleccionada:"/>
         <TextBlock x:Name="txtConfiguracion_Copy2" HorizontalAlignment="Left" Margin="249,333,0,0" TextWrapping="Wrap" FontSize="24" Width="281" Height="31" VerticalAlignment="Top" Text="Depredador seleccionado:"/>

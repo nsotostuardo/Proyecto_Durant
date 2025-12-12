@@ -38,6 +38,12 @@ public class ListaComidas {
         }
     }
     
+    public Comida getPrimeraComida() {
+        if (listaComida.isEmpty())
+            return null;  
+        return listaComida.get(0);
+    }
+    
     public void listarComida(){
         System.out.print("        Comidas: [");
         String texto = "";

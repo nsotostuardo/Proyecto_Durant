@@ -43,7 +43,11 @@ public class Comida {
     }
 
     public void setCantidad(int cantidad) {
+        if (this.cantidad < 0){
+            this.cantidad = 0;
+        }else{
         this.cantidad = cantidad;
+        }
     }
 
     public void setCalidad(float calidad) {

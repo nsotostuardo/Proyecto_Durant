@@ -42,7 +42,11 @@ public class Operator extends Hormiga{
     }
 
     public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        if (cantidad < 0) {
+            this.cantidad = 0;
+        } else {
+            this.cantidad = cantidad;
+        }
     }
 
     public float getEnergia() {

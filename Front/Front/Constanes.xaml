@@ -30,8 +30,9 @@
             <ComboBoxItem Content="Oso hormigero"/>
             <ComboBoxItem Content="Armadillos"/>
         </ComboBox>
-        <Image x:Name="imgRecursos_Copy1" HorizontalAlignment="Left" Margin="137,0,0,83" Width="108" Source="/depredador.png" VerticalAlignment="Bottom" Height="89"/>
-        <Image x:Name="imgRecursos_Copy" HorizontalAlignment="Left" Height="74" Margin="159,202,0,0" VerticalAlignment="Top" Width="65" Source="/ambiente.png"/>
-        <Image x:Name="imgRecursos" HorizontalAlignment="Left" Height="52" Margin="169,128,0,0" VerticalAlignment="Top" Width="44" Source="/ResourcesDurant/recursos.png"/>
+        <Image x:Name="imgRecursos_Copy1" HorizontalAlignment="Left" Margin="137,0,0,83" Width="108" Source="/recursos/depredador.png" VerticalAlignment="Bottom" Height="89"/>
+        <Image x:Name="imgRecursos_Copy" HorizontalAlignment="Left" Height="74" Margin="159,202,0,0" VerticalAlignment="Top" Width="65" Source="/recursos/ambiente.png"/>
+        <Image x:Name="imgRecursos" HorizontalAlignment="Left" Height="52" Margin="169,128,0,0" VerticalAlignment="Top" Width="44" Source="/recursos/recursos.png"/>
+        <Button Content="Seleccione un terreno" HorizontalAlignment="Left" Margin="290,147,0,0" VerticalAlignment="Top" Height="34" Width="212" FontSize="16" Background="#FFE5E5E5" Click="Button_Click"/>
     </Grid>
 </Window>

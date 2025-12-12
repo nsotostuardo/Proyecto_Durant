@@ -10,9 +10,9 @@
     <Grid>
         <Button x:Name="btnVolver" Content="X" Margin="761,22,0,0" Background="#FFD5CECE" BorderBrush="White" Foreground="#FF747070" SnapsToDevicePixels="True" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnVolver_Click"/>
         <TextBlock x:Name="txtHormigas" Margin="261,23,0,0" TextWrapping="Wrap" Text="Seleccione el tipo de hormiga" FontSize="24" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"/>
-        <Image x:Name="imghormiga1" HorizontalAlignment="Left" Height="107" Margin="243,76,0,0" VerticalAlignment="Top" Width="103" Source="/632 1.png"/>
-        <Image x:Name="imghormiga1_Copy" HorizontalAlignment="Left" Height="107" Margin="242,172,0,0" VerticalAlignment="Top" Width="103" Source="/632 3.png"/>
-        <Image x:Name="imghormiga1_Copy1" HorizontalAlignment="Left" Height="107" Margin="243,273,0,0" VerticalAlignment="Top" Width="103" Source="/632 2.png"/>
+        <Image x:Name="imghormiga1" HorizontalAlignment="Left" Height="107" Margin="243,76,0,0" VerticalAlignment="Top" Width="103" Source="/recursos/hormiga1.png"/>
+        <Image x:Name="imghormiga1_Copy" HorizontalAlignment="Left" Height="107" Margin="242,172,0,0" VerticalAlignment="Top" Width="103" Source="/recursos/hormiga2.png"/>
+        <Image x:Name="imghormiga1_Copy1" HorizontalAlignment="Left" Height="107" Margin="243,273,0,0" VerticalAlignment="Top" Width="103" Source="/recursos/hormiga3.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="267,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"><Run Text="Seleccionada:"/><LineBreak/><Run/></TextBlock>
         <TextBlock x:Name="txtTipoHormiga" HorizontalAlignment="Left" Margin="407,376
                    ,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" Width="224"><Run Language="ja-jp" Text="defecto"/><LineBreak/><Run/></TextBlock>

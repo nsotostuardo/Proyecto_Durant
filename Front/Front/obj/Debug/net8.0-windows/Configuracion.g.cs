@@ -93,7 +93,7 @@ namespace Front {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Front;component/configuracion.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Durant;component/configuracion.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Configuracion.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
