@@ -18,7 +18,7 @@ Proyecto que busca crear un simulador del comportamiento de hormigas invasoras e
 
 
 ## 📂 Directorio 📂 
-Existen dos archivos desde esta directorio: Backend y Generador de Datos, cada uno lleva al respectivo código escrito en C y en Java, unicamente listamos los archivos importantes.
+Existen dos archivos desde esta directorio: Backend y Generador de Datos, cada uno lleva al respectivo código escrito en C y en Java, unicamente listamos los archivos importantes. Ahora se encuentra disponible el Frontend!
 
 ```bash
 📦 PROYECTO_DURANT/
@@ -44,6 +44,9 @@ Existen dos archivos desde esta directorio: Backend y Generador de Datos, cada u
 │       ├── 📁 test/
 │           └── ...
 │       └── ...
-│
+├── 📁 Front/
+│   ├── 📚 README.md
+│   ├── Front.sln
+│   └── 📁 Front/
 └── 📚 README.md
 
